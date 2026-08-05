@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cuffed:padlock_key",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.weapons"
+      }
+    },
+    "components": {
+      "minecraft:icon": "padlock_key",
+      "minecraft:display_name": {
+        "value": "§6挂锁钥匙"
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:hand_equipped": true,
+      "minecraft:tags": {
+        "tags": [
+          "cuffed:lock_key"
+        ]
+      }
+    }
+  }
+}
