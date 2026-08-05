@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cuffed:lockpick_recipe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "  I",
+      " I ",
+      "I  "
+    ],
+    "key": {
+      "I": "minecraft:iron_ingot"
+    },
+    "result": {
+      "item": "cuffed:lockpick",
+      "count": 1
+    }
+  }
+}
