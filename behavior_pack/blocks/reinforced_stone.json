@@ -1,0 +1,44 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "cuffed:reinforced_stone",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.stone"
+      }
+    },
+    "components": {
+      "minecraft:display_name": "§7加固石砖",
+      "minecraft:geometry": "geometry.block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "reinforced_stone",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 6000.0,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "q.any_tag('minecraft:is_pickaxe')"
+            },
+            "destroy_speed": 1500.0
+          }
+        ]
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 6000.0
+      },
+      "minecraft:map_color": [
+        100,
+        90,
+        80
+      ],
+      "minecraft:loot": {
+        "table": "loot_tables/blocks/reinforced_stone.json"
+      }
+    }
+  }
+}
