@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "cuffed:cell_door",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.stone"
+      }
+    },
+    "components": {
+      "minecraft:display_name": "§7§l牢门",
+      "minecraft:geometry": "geometry.block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "cell_door",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 9999.0
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 6000.0
+      },
+      "minecraft:map_color": [
+        100,
+        90,
+        80
+      ],
+      "minecraft:loot": {
+        "table": "loot_tables/blocks/cell_door.json"
+      }
+    }
+  }
+}
