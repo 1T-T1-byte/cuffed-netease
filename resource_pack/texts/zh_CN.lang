@@ -1,0 +1,25 @@
+## 监禁 Cuffed - 中文语言文件
+item.cuffed:handcuffs=手铐
+item.cuffed:handcuff_key=手铐钥匙
+item.cuffed:lockpick=开锁器
+item.cuffed:padlock=挂锁
+item.cuffed:padlock_key=挂锁钥匙
+item.cuffed:chain=锁链
+tile.cuffed:reinforced_stone.name=加固石砖
+tile.cuffed:cell_door.name=牢门
+
+item.cuffed:handcuffs.description=§7右键铐住其他玩家
+item.cuffed:handcuff_key.description=§e右键被铐住的玩家以解锁
+item.cuffed:lockpick.description=§7可以破坏手铐或挂锁
+item.cuffed:padlock.description=§6右键箱子安装挂锁
+item.cuffed:padlock_key.description=§6右键挂锁箱子解锁
+item.cuffed:chain.description=§7牵着被铐住的玩家
+
+action.cuffed.locked=§c这个箱子被锁住了！
+action.cuffed.unlocked=§a锁已打开
+action.cuffed.handcuffed=§c你被铐住了！
+action.cuffed.freed=§a手铐已解开
+action.cuffed.pick_success=§a开锁成功！
+action.cuffed.pick_fail=§7开锁失败...
+action.cuffed.chain_attach=§7已用锁链连接玩家
+action.cuffed.loot_take=§7已缴获物品
