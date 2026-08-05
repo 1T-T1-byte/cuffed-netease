@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cuffed:chain",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.weapons"
+      }
+    },
+    "components": {
+      "minecraft:icon": "chain",
+      "minecraft:display_name": {
+        "value": "§7锁链"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:hand_equipped": true,
+      "minecraft:tags": {
+        "tags": [
+          "cuffed:chain"
+        ]
+      }
+    }
+  }
+}
