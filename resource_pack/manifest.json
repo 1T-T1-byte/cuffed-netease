@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§4§l监禁 §rCuffed 资源包",
+    "description": "监禁模组 - 纹理与模型",
+    "uuid": "957d9439-8ed2-420c-bc39-145df0b44fdd",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "5e2c95bc-93f2-46d5-bfbc-996f1ab20df7",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}
