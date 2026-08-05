@@ -1,0 +1,12 @@
+{
+  "resource_pack_name": "cuffed",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "reinforced_stone": {
+      "textures": "textures/blocks/reinforced_stone"
+    },
+    "cell_door": {
+      "textures": "textures/blocks/cell_door"
+    }
+  }
+}
