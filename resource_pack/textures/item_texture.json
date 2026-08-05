@@ -1,0 +1,24 @@
+{
+  "resource_pack_name": "cuffed",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "handcuffs": {
+      "textures": "textures/items/handcuffs"
+    },
+    "handcuff_key": {
+      "textures": "textures/items/handcuff_key"
+    },
+    "lockpick": {
+      "textures": "textures/items/lockpick"
+    },
+    "padlock": {
+      "textures": "textures/items/padlock"
+    },
+    "padlock_key": {
+      "textures": "textures/items/padlock_key"
+    },
+    "chain": {
+      "textures": "textures/items/chain"
+    }
+  }
+}
