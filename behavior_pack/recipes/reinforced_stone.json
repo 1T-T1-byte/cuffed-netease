@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cuffed:reinforced_stone_recipe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "SSS",
+      "SIS",
+      "SSS"
+    ],
+    "key": {
+      "S": "minecraft:stone_bricks",
+      "I": "minecraft:iron_block"
+    },
+    "result": {
+      "item": "cuffed:reinforced_stone",
+      "count": 8
+    }
+  }
+}
