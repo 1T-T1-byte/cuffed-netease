@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cuffed:chain_recipe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "I",
+      "I",
+      "I"
+    ],
+    "key": {
+      "I": "minecraft:iron_ingot"
+    },
+    "result": {
+      "item": "cuffed:chain",
+      "count": 3
+    }
+  }
+}
