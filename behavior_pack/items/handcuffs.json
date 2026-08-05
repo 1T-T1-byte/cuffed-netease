@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cuffed:handcuffs",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.weapons"
+      }
+    },
+    "components": {
+      "minecraft:icon": "handcuffs",
+      "minecraft:display_name": {
+        "value": "§7手铐"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 50
+      },
+      "minecraft:tags": {
+        "tags": [
+          "cuffed:handcuffs"
+        ]
+      }
+    }
+  }
+}
