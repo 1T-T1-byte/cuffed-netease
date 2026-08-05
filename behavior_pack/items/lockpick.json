@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cuffed:lockpick",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.weapons"
+      }
+    },
+    "components": {
+      "minecraft:icon": "lockpick",
+      "minecraft:display_name": {
+        "value": "§7开锁器"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 20
+      },
+      "minecraft:tags": {
+        "tags": [
+          "cuffed:lockpick"
+        ]
+      }
+    }
+  }
+}
