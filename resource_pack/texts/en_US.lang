@@ -1,0 +1,9 @@
+## Cuffed - English Language File
+item.cuffed:handcuffs=Handcuffs
+item.cuffed:handcuff_key=Handcuff Key
+item.cuffed:lockpick=Lockpick
+item.cuffed:padlock=Padlock
+item.cuffed:padlock_key=Padlock Key
+item.cuffed:chain=Chain
+tile.cuffed:reinforced_stone.name=Reinforced Stone Bricks
+tile.cuffed:cell_door.name=Cell Door
