@@ -1,0 +1,61 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§4§l监禁 §rCuffed",
+    "description": "给你的朋友们戴上手铐并关起来！\n§7手铐 | 牢门 | 挂锁 | 开锁器 | 加固方块",
+    "uuid": "17bc496e-22e8-4b83-a6cd-ebbb9d33b45f",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "916a44a3-4ea1-44e2-aa1e-674388b7d141",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "357e5ad9-e329-4d01-a58f-fc5c6fe07120",
+      "version": [
+        1,
+        0,
+        0
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "957d9439-8ed2-420c-bc39-145df0b44fdd",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.10.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.3.0"
+    }
+  ],
+  "capabilities": [
+    "script_eval"
+  ]
+}
