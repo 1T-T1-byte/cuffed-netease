@@ -1,0 +1,11 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:recipe_shaped": {
+    "description": {"identifier": "cuffed:key_lock_recipe"},
+    "tags": ["crafting_table"],
+    "unlock": [{"item": "minecraft:iron_ingot"}],
+    "pattern": ["III", "I I", "III"],
+    "key": {"I": "minecraft:iron_ingot"},
+    "result": {"item": "cuffed:key_lock", "count": 1}
+  }
+}
