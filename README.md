@@ -2,6 +2,13 @@
 
 > 给你的朋友们戴上手铐并关起来！
 
+📋 **开发者必读：[`PROJECT_STATUS.md`](PROJECT_STATUS.md)** —— 项目完整档案（架构 / 已知坑 / 待办 / 换设备恢复步骤）
+
+## ⚖️ 开源声明
+
+- 本项目基于 **LazrProductions** 的 [Cuffed](https://modrinth.com/mod/cuffed)（Java 版）重制，适配网易版基岩版
+- 原模组协议：**GPL-3.0**；本项目同样采用 **GPL-3.0**（见 [LICENSE](LICENSE)）
+
 ## 📦 项目结构
 
 ```
