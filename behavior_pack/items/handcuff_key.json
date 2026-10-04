@@ -5,7 +5,7 @@
       "identifier": "cuffed:handcuff_key",
       "menu_category": {
         "category": "equipment",
-        "group": "itemGroup.name.weapons"
+        "group": "cuffed:items"
       }
     },
     "components": {
