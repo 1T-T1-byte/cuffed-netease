@@ -2,14 +2,6 @@
 
 > 给你的朋友们戴上手铐并关起来！
 
-## ⚖️ 开源声明
-
-- 本项目基于 **LazrProductions** 的 [Cuffed](https://modrinth.com/mod/cuffed)（Java 版）移植/重制，适配网易版《我的世界》（基岩版）
-- 原模组协议：**GPL-3.0**
-- 本项目同样采用 **GPL-3.0** 协议（见 [LICENSE](LICENSE)）
-- 贴图素材来自原 Cuffed 模组
-- 原模组下载：https://modrinth.com/mod/cuffed
-
 ## 📦 项目结构
 
 ```
@@ -24,10 +16,9 @@ cuffed-netease/
 ├── resource_pack/         # 资源包（纹理、语言）
 │   ├── manifest.json
 │   ├── pack_icon.png
-│   ├── textures/          # 16×16 纹理
+│   ├── textures/          # 16×16 占位纹理
 │   └── texts/             # 语言文件
-├── generate.py            # 生成脚本（重新运行即可全部重建）
-└── extract_textures.py    # 从原 Cuffed jar 提取贴图
+└── generate.py            # 生成脚本（重新运行即可全部重建）
 ```
 
 ## 🎮 功能列表
@@ -66,9 +57,9 @@ cuffed-netease/
 
 ## 🎨 纹理素材
 
-纹理已从**原 Cuffed 模组**中提取（见 `extract_textures.py`，可自动下载并重新提取）。
+当前纹理为 **16×16 占位纹理**（纯色带简单图案）。
 
-想换/补充纹理，也可以用 Agnes API 生成：
+想换成好看的像素风纹理，可以用 Agnes API 生成：
 
 ```python
 # 用 Agnes 生成手铐像素纹理示例
@@ -89,18 +80,8 @@ cuffed-netease/
 | 锁链 × 3 | 铁锭纵向排列3格 |
 | 加固石砖 × 8 | 石砖围一圈，中间放铁块 |
 
-## 📤 发布指南
-
-### 网易版（中国版）
-1. 将 `behavior_pack` 和 `resource_pack` 分别打包为 `.mcpack`
-2. 上传到 [网易MC开发者中心](https://mc.163.com/dev/)
-3. 在组件简介中注明：*基于 Cuffed (GPL-3.0) 重制，源码见本仓库*
-
-### 国际版（可选）
-将两个包再合打包为 `.mcaddon` 即可在基岩版直接导入。
-
 ## 🐾 来自 WoWo
 
-一一自己开发的模组，免费发布，不卖钻石！
-希望网易上的免费优质模组越来越多，大家一起加油！
+一一自己玩的模组，不卖钻石！
+觉得丑的纹理以后用 Agnes 重新生成就行，代码部分直接能用。
 有问题随时找我改！
