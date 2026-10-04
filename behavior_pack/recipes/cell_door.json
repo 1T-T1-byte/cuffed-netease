@@ -1,0 +1,11 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:recipe_shaped": {
+    "description": {"identifier": "cuffed:cell_door_recipe"},
+    "tags": ["crafting_table"],
+    "unlock": [{"item": "minecraft:iron_ingot"}],
+    "pattern": ["II", "II", "II"],
+    "key": {"I": "minecraft:iron_ingot"},
+    "result": {"item": "cuffed:cell_door", "count": 1}
+  }
+}
