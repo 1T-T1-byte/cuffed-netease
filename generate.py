@@ -91,15 +91,34 @@ def make_pack_icon(path, color, letter):
     make_png_16x16(path, *color)
 
 # ============================
-# UUID 生成（运行时随机）
+# UUID（如果已有 manifest.json 则复用，保持兼容）
 # ============================
 
+def read_uuids_from_manifest(path):
+    """从已有 manifest.json 读取 UUIDs，保持版本间兼容"""
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            d = json.load(f)
+        uuids = {'header': d['header']['uuid']}
+        for m in d.get('modules', []):
+            if m.get('type') == 'data':
+                uuids['data'] = m['uuid']
+            elif m.get('type') == 'script':
+                uuids['script'] = m['uuid']
+            elif m.get('type') == 'resources':
+                uuids['resources'] = m['uuid']
+        return uuids
+    except (FileNotFoundError, KeyError, json.JSONDecodeError):
+        return {}
+
 # 主包 UUID
-UUID_BP_HEADER = make_uuid()
-UUID_BP_DATA = make_uuid()
-UUID_BP_SCRIPT = make_uuid()
-UUID_RP_HEADER = make_uuid()
-UUID_RP_RES = make_uuid()
+_bp = read_uuids_from_manifest(f"{BASE}/behavior_pack/manifest.json")
+_rp = read_uuids_from_manifest(f"{BASE}/resource_pack/manifest.json")
+UUID_BP_HEADER = _bp.get('header') or make_uuid()
+UUID_BP_DATA = _bp.get('data') or make_uuid()
+UUID_BP_SCRIPT = _bp.get('script') or make_uuid()
+UUID_RP_HEADER = _rp.get('header') or make_uuid()
+UUID_RP_RES = _rp.get('resources') or make_uuid()
 
 # 物品/方块标识符
 NS = "cuffed"
@@ -147,7 +166,7 @@ def make_item(item_id, name, lore, texture, max_stack=64, components=None):
         "minecraft:item": {
             "description": {
                 "identifier": f"{NS}:{item_id}",
-                "menu_category": {"category": "equipment", "group": "itemGroup.name.weapons"}
+                "menu_category": {"category": "equipment", "group": "cuffed:items"}
             },
             "components": {
                 "minecraft:icon": texture,
@@ -194,11 +213,11 @@ for item in items:
 
 def make_block(block_id, name, texture, components=None):
     data = {
-        "format_version": "1.21.60",
+        "format_version": "1.21.0",
         "minecraft:block": {
             "description": {
                 "identifier": f"{NS}:{block_id}",
-                "menu_category": {"category": "construction", "group": "itemGroup.name.stone"}
+                "menu_category": {"category": "construction", "group": "cuffed:blocks"}
             },
             "components": {
                 "minecraft:display_name": name,
@@ -253,6 +272,7 @@ recipes = {
     "handcuffs": {
         "description": {"identifier": f"{NS}:handcuffs_recipe"},
         "tags": ["crafting_table"],
+        "unlock": [{"item": "minecraft:iron_ingot"}],
         "pattern": ["I I", " I ", "I I"],
         "key": {"I": "minecraft:iron_ingot"},
         "result": {"item": f"{NS}:handcuffs", "count": 1}
@@ -260,6 +280,7 @@ recipes = {
     "handcuff_key": {
         "description": {"identifier": f"{NS}:handcuff_key_recipe"},
         "tags": ["crafting_table"],
+        "unlock": [{"item": "minecraft:iron_ingot"}],
         "pattern": [" I ", " I ", " I "],
         "key": {"I": "minecraft:iron_ingot"},
         "result": {"item": f"{NS}:handcuff_key", "count": 1}
@@ -267,6 +288,7 @@ recipes = {
     "lockpick": {
         "description": {"identifier": f"{NS}:lockpick_recipe"},
         "tags": ["crafting_table"],
+        "unlock": [{"item": "minecraft:iron_ingot"}],
         "pattern": ["  I", " I ", "I  "],
         "key": {"I": "minecraft:iron_ingot"},
         "result": {"item": f"{NS}:lockpick", "count": 1}
@@ -274,6 +296,7 @@ recipes = {
     "padlock": {
         "description": {"identifier": f"{NS}:padlock_recipe"},
         "tags": ["crafting_table"],
+        "unlock": [{"item": "minecraft:iron_ingot"}],
         "pattern": ["III", "I I", "III"],
         "key": {"I": "minecraft:iron_ingot"},
         "result": {"item": f"{NS}:padlock", "count": 1}
@@ -281,6 +304,7 @@ recipes = {
     "padlock_key": {
         "description": {"identifier": f"{NS}:padlock_key_recipe"},
         "tags": ["crafting_table"],
+        "unlock": [{"item": "minecraft:gold_ingot"}],
         "pattern": [" I ", " G ", " I "],
         "key": {"I": "minecraft:iron_ingot", "G": "minecraft:gold_ingot"},
         "result": {"item": f"{NS}:padlock_key", "count": 1}
@@ -288,6 +312,7 @@ recipes = {
     "chain": {
         "description": {"identifier": f"{NS}:chain_recipe"},
         "tags": ["crafting_table"],
+        "unlock": [{"item": "minecraft:iron_ingot"}],
         "pattern": ["I", "I", "I"],
         "key": {"I": "minecraft:iron_ingot"},
         "result": {"item": f"{NS}:chain", "count": 3}
@@ -295,6 +320,7 @@ recipes = {
     "reinforced_stone": {
         "description": {"identifier": f"{NS}:reinforced_stone_recipe"},
         "tags": ["crafting_table"],
+        "unlock": [{"item": "minecraft:stone_bricks"}],
         "pattern": ["SSS", "SIS", "SSS"],
         "key": {"S": "minecraft:stone_bricks", "I": "minecraft:iron_block"},
         "result": {"item": f"{NS}:reinforced_stone", "count": 8}
@@ -337,6 +363,8 @@ item.cuffed:padlock_key=挂锁钥匙
 item.cuffed:chain=锁链
 tile.cuffed:reinforced_stone.name=加固石砖
 tile.cuffed:cell_door.name=牢门
+itemGroup.cuffed:items=监禁
+itemGroup.cuffed:blocks=监禁方块
 
 item.cuffed:handcuffs.description=§7右键铐住其他玩家
 item.cuffed:handcuff_key.description=§e右键被铐住的玩家以解锁
@@ -365,6 +393,8 @@ item.cuffed:padlock_key=Padlock Key
 item.cuffed:chain=Chain
 tile.cuffed:reinforced_stone.name=Reinforced Stone Bricks
 tile.cuffed:cell_door.name=Cell Door
+itemGroup.cuffed:items=Cuffed
+itemGroup.cuffed:blocks=Cuffed Blocks
 """
 write_plain(f"{BASE}/resource_pack/texts/en_US.lang", lang_en)
 
@@ -434,10 +464,10 @@ make_pack_icon(f"{BASE}/resource_pack/pack_icon.png", (40, 80, 180), "C")   # �
 # ============================
 
 script_code = r"""
-/=========================================================================
- 监禁 (Cuffed) - 核心逻辑
- 网易版《我的世界》基岩版
-=========================================================================/
+//=========================================================================
+// 监禁 (Cuffed) - 核心逻辑
+// 网易版《我的世界》基岩版
+//=========================================================================
 
 import { world, system, EntityComponentTypes, ItemComponentTypes, GameMode } from "@minecraft/server";
 
