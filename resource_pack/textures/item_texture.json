@@ -14,11 +14,17 @@
     "padlock": {
       "textures": "textures/items/padlock"
     },
+    "key_lock": {
+      "textures": "textures/items/key_lock"
+    },
     "padlock_key": {
       "textures": "textures/items/padlock_key"
     },
     "chain": {
       "textures": "textures/items/chain"
+    },
+    "cell_door": {
+      "textures": "textures/items/cell_door"
     }
   }
 }
