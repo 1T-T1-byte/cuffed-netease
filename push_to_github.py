@@ -25,7 +25,7 @@ for root, dirs, files in os.walk(BASE):
         if f in ('Cuffed.jar',) or f.startswith('_preview_'):
             continue
         rel = os.path.join(rel_root, f) if rel_root != '.' else f
-        FILES.append(rel)
+        FILES.append(rel.replace("\\", "/"))   # GitHub API 需要正斜杠
 
 FILES.sort()
 
@@ -41,24 +41,41 @@ def api(method, url, data=None):
         with urllib.request.urlopen(req, body, timeout=30) as resp:
             return resp.status, json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
-        return e.code, json.loads(e.read().decode())
+        try:
+            return e.code, json.loads(e.read().decode())
+        except Exception:
+            return e.code, {"message": "unknown error"}
+
+def get_file_sha(path):
+    """获取已存在文件的 SHA（更新时必须提供）"""
+    url = f"https://api.github.com/repos/{OWNER}/{REPO}/contents/{path}?ref={BRANCH}"
+    status, resp = api("GET", url)
+    if status == 200 and isinstance(resp, dict):
+        return resp.get("sha")
+    return None
 
 def upload_file(path, retry=3):
-    full = os.path.join(BASE, path)
+    full = os.path.join(BASE, path.replace("/", os.sep))
     with open(full, 'rb') as f:
         content_b64 = base64.b64encode(f.read()).decode()
     url = f"https://api.github.com/repos/{OWNER}/{REPO}/contents/{path}"
+    sha = get_file_sha(path)
     data = {
-        "message": f"add {path}",
+        "message": f"{'update' if sha else 'add'} {path}",
         "content": content_b64,
         "branch": BRANCH,
     }
+    if sha:
+        data["sha"] = sha      # 更新已存在文件必须带 sha
     for attempt in range(retry):
         status, resp = api("PUT", url, data)
         if status in (200, 201):
             return True
         elif status == 422 and attempt < retry - 1:
-            print(f"  ⚠️ {path}: {resp.get('message','')[:60]}... 重试")
+            # 可能是并发/缓存问题，重取 sha 再试
+            new_sha = get_file_sha(path)
+            if new_sha:
+                data["sha"] = new_sha
             continue
         else:
             print(f"  ❌ {path}: HTTP {status} {resp.get('message','')[:80]}")
