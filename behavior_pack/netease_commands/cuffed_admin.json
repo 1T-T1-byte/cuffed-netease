@@ -1,0 +1,9 @@
+{
+  "format_version": "0.0.1",
+  "name": "admin",
+  "description": "给玩家添加管理员快拆权限",
+  "permission_level": "game_directors",
+  "args": [
+    {"name": "目标玩家", "type": "target"}
+  ]
+}
